@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Haligonians Against Austerity | Stop The Cuts!</title>
+  <meta name="description" content="Tell Halifax Regional Council to stop disastrous cuts. Invest in transit, housing, and our future.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ─── HEADER ─── -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-inner">
+      <a href="#" class="site-logo">
+        <div class="logo-icon"><svg viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="21" cy="21" r="21" fill="#003DA5"/>
+          <path d="M0 0 L17 17 M25 17 L42 0 M0 42 L17 25 M25 25 L42 42" stroke="#FFD100" stroke-width="5.5" stroke-linecap="round"/>
+          <circle cx="21" cy="21" r="9" fill="#FFD100"/>
+          <!-- Saltire arrows at tips -->
+          <path d="M1.5 1.5 L6 3.5 M1.5 1.5 L3.5 6" stroke="#FFD100" stroke-width="2" stroke-linecap="round"/>
+          <path d="M40.5 1.5 L36 3.5 M40.5 1.5 L38.5 6" stroke="#FFD100" stroke-width="2" stroke-linecap="round"/>
+          <path d="M1.5 40.5 L6 38.5 M1.5 40.5 L3.5 36" stroke="#FFD100" stroke-width="2" stroke-linecap="round"/>
+          <path d="M40.5 40.5 L36 38.5 M40.5 40.5 L38.5 36" stroke="#FFD100" stroke-width="2" stroke-linecap="round"/>
+        </svg></div>
+        <div class="logo-text">Haligonians<br><span>Against Austerity</span></div>
+      </a>
+      <nav class="header-nav" id="navMenu">
+        <a href="#cuts">The Cuts</a>
+        <a href="#transit">Transit</a>
+        <a href="#forum">Forum</a>
+        <a href="#safety">Road Safety</a>
+        <a href="#bikes">Bike Lanes</a>
+        <a href="#act" class="nav-cta">Take Action</a>
+      </nav>
+      <button class="mobile-menu-btn" id="menuBtn" aria-label="Toggle menu">&#9776;</button>
+    </div>
+  </header>
+
+  <!-- ─── HERO ─── -->
+  <section class="hero" id="top">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <h1>Halifax Can't Afford <em>Austerity</em></h1>
+        <p class="hero-subtitle">Tell Council to Stop the Disastrous Cuts!</p>
+        <p class="hero-description">
+          Halifax is one of the fastest-growing cities in Canada, and you can't cut your way to prosperity.
+          The proposed 10.5% tax increase works out to roughly $20 per month for the average household.
+          That's less than a quarter the cost of a monthly transit pass, and it pays for the services that make this city liveable. We need to invest in our future!
+        </p>
+        <div class="hero-actions">
+          <a href="#act" class="btn btn-primary">Send Your Message &rarr;</a>
+          <a href="#cuts" class="btn btn-outline">Learn More</a>
+        </div>
+      </div>
+
+      <!-- ─── ACTION FORM ─── -->
+      <div class="hero-card" id="act">
+        <h2>Email Your Councillor</h2>
+        <p class="card-sub">Your message will be sent directly to your district councillor and the Mayor.</p>
+        <form id="emailForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName">First Name</label>
+              <input type="text" id="firstName" name="firstName" placeholder="Jane Q." required>
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name</label>
+              <input type="text" id="lastName" name="lastName" placeholder="Halifax" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Your Email</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required>
+          </div>
+          <div class="form-group">
+            <label for="district">Your District</label>
+            <select id="district" name="district" required>
+              <option value="" disabled selected>Select your district&hellip;</option>
+              <option value="1">District 1 — Waverley–Fall River–Musquodoboit Valley (Cathy Deagle Gammon)</option>
+              <option value="2">District 2 — Lawrencetown–The Lakes–Chezzetcook–Eastern Shore (David Hendsbee)</option>
+              <option value="3">District 3 — Dartmouth South–Woodside–Eastern Passage (Becky Kent)</option>
+              <option value="4">District 4 — Cole Harbour–Preston–Westphal–Cherry Brook (Trish Purdy)</option>
+              <option value="5">District 5 — Dartmouth Centre (Sam Austin)</option>
+              <option value="6">District 6 — Dartmouth East–Burnside (Tony Mancini)</option>
+              <option value="7">District 7 — Halifax South Downtown (Laura White)</option>
+              <option value="8">District 8 — Halifax Peninsula North (Virginia Hinch)</option>
+              <option value="9">District 9 — Halifax West Armdale (Shawn Cleary)</option>
+              <option value="10">District 10 — Halifax–Bedford Basin West (Kathryn Morse)</option>
+              <option value="11">District 11 — Spryfield–Sambro Loop (Patty Cuttell)</option>
+              <option value="12">District 12 — Timberlea–Beechville–Clayton Park–Wedgewood (Janet Steele)</option>
+              <option value="13">District 13 — Prospect Road–St. Margarets (Nancy Hartling)</option>
+              <option value="14">District 14 — Hammonds Plains–Upper Sackville (John Young)</option>
+              <option value="15">District 15 — Lower Sackville–Beaver Bank (Billy Gillis)</option>
+              <option value="16">District 16 — Bedford–Wentworth (Jean St-Amand)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Your Message</label>
+            <textarea id="message" name="message"></textarea>
+          </div>
+          <button type="submit" class="form-submit">Send to Council &rarr;</button>
+          <p class="form-note">
+            Your name and email will be included so Council can respond directly to you.
+            We will never retain your information or share your information with third parties.
+          </p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PROPOSED CUTS ─── -->
+  <section class="section cuts-section" id="cuts">
+    <div class="section-inner">
+      <div class="section-label">The Proposed Cuts</div>
+      <h2 class="section-title reveal">This Is What Austerity Actually Looks Like</h2>
+      <p class="section-desc reveal">
+        These aren't hypothetical. These are the real service cuts being proposed to HRM councillors.
+        Read the list and ask yourself: is this the city you want to live in?
+      </p>
+      <div class="cuts-grid stagger-children">
+        <div class="cut-item reveal">Eliminate all Sunday and holiday bus service across HRM</div>
+        <div class="cut-item reveal">Eliminate all transit service after 10:00 PM</div>
+        <div class="cut-item reveal">Cancel the lowest-performing bus routes</div>
+        <div class="cut-item reveal">Permanently reduce the Alderney Ferry to 30-minute service</div>
+        <div class="cut-item reveal">Eliminate sidewalk snow clearing in residential neighbourhoods</div>
+        <div class="cut-item reveal">Reduce the state of good repair for streets</div>
+        <div class="cut-item reveal">Double the wait time for clearing bus stops to 48 hours</div>
+        <div class="cut-item reveal">Cancel the senior snow-clearing program</div>
+        <div class="cut-item reveal">Eliminate seasonal summer maintenance in Downtown Halifax and Dartmouth</div>
+        <div class="cut-item reveal">Kill the safe bicycle network</div>
+        <div class="cut-item reveal">Cancel the Forum reconstruction, leaving the North End without a rink</div>
+        <div class="cut-item reveal">Eliminate the living wage requirement for HRM contracts</div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── HIGHLIGHT BANNER ─── -->
+  <section class="highlight-banner">
+    <div class="highlight-inner reveal">
+      <h2>You Can't Cut Your Way to Prosperity</h2>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere diam in tellus pretium, sit amet pharetra velit faucibus. Nam lacinia hendrerit sapien, ut sagittis tortor molestie quis. Donec ut leo sed ipsum volutpat posuere. Phasellus interdum metus et fermentum pulvinar.
+      </p>
+      <a href="#act" class="btn btn-primary btn-primary--blue">Let Them Know &rarr;</a>
+    </div>
+  </section>
+
+  <!-- ─── TRANSIT INVESTMENT ─── -->
+  <section class="section transit-section" id="transit">
+    <div class="section-inner">
+      <div class="transit-grid">
+        <div class="transit-content">
+          <div class="section-label">Invest in Transit</div>
+          <h2 class="section-title reveal">Halifax Needs More Transit, Not Less</h2>
+          <p class="section-desc reveal">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere diam in tellus pretium, sit amet pharetra velit faucibus. Nam lacinia hendrerit sapien, ut sagittis tortor molestie quis. Donec ut leo sed ipsum volutpat posuere. Phasellus interdum metus et fermentum pulvinar.
+          </p>
+          <a href="#act" class="btn btn-primary reveal">Demand More & Better Transit &rarr;</a>
+        </div>
+        <ul class="transit-points stagger-children">
+          <li class="reveal">
+            <div class="transit-point-icon">🚌</div>
+            <div class="transit-point-text">
+              <h4>Expand Bus Service</h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere diam in tellus pretium, sit amet pharetra velit faucibus.</p>
+            </div>
+          </li>
+          <li class="reveal">
+            <div class="transit-point-icon">⛴️</div>
+            <div class="transit-point-text">
+              <h4>Build the Mill Cove Ferry</h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere diam in tellus pretium, sit amet pharetra velit faucibus.</p>
+            </div>
+          </li>
+          <li class="reveal">
+            <div class="transit-point-icon">💰</div>
+            <div class="transit-point-text">
+              <h4>Lower Household Costs</h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere diam in tellus pretium, sit amet pharetra velit faucibus.</p>
+            </div>
+          </li>
+          <li class="reveal">
+            <div class="transit-point-icon">🌎</div>
+            <div class="transit-point-text">
+              <h4>Meet Climate Commitments</h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere diam in tellus pretium, sit amet pharetra velit faucibus.</p>
+            </div>
+          </li>
+          <li class="reveal">
+            <div class="transit-point-icon">📈</div>
+            <div class="transit-point-text">
+              <h4>Support Economic Growth</h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere diam in tellus pretium, sit amet pharetra velit faucibus.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── HALIFAX FORUM ─── -->
+  <section class="section forum-section" id="forum">
+    <div class="section-inner">
+      <div class="forum-grid">
+        <div class="forum-content">
+          <div class="section-label">The Halifax Forum</div>
+          <h2 class="section-title reveal">Community Hubs Are Not Optional</h2>
+          <p class="section-desc reveal">
+            The Halifax Forum has served the Peninsula's 100,000 residents for generations as a place to skate, gather, and connect.
+            After four consecutive councils and more than a decade of planning, the reconstruction was finally moving forward.
+            Now the Mayor wants to hit pause. Again.
+          </p>
+          <a href="#act" class="btn btn-primary reveal">Defend the Forum &rarr;</a>
+        </div>
+        <div class="forum-points stagger-children">
+          <div class="forum-point reveal">
+            <div class="forum-point-icon">🏛️</div>
+            <div class="forum-point-text">
+              <h4>Third Spaces Matter</h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere diam in tellus pretium, sit amet pharetra velit faucibus./p>
+            </div>
+          </div>
+          <div class="forum-point reveal">
+            <div class="forum-point-icon">🏗️</div>
+            <div class="forum-point-text">
+              <h4>A Decade of Planning</h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere diam in tellus pretium, sit amet pharetra velit faucibus.</p>
+            </div>
+          </div>
+          <div class="forum-point reveal">
+            <div class="forum-point-icon">⚠️</div>
+            <div class="forum-point-text">
+              <h4>The Building Is Failing</h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere diam in tellus pretium, sit amet pharetra velit faucibus.</p>
+            </div>
+          </div>
+          <div class="forum-point reveal">
+            <div class="forum-point-icon">💸</div>
+            <div class="forum-point-text">
+              <h4>Delay Costs More</h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere diam in tellus pretium, sit amet pharetra velit faucibus.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── ROAD SAFETY ─── -->
+  <section class="section safety-section" id="safety">
+    <div class="section-inner">
+      <div class="safety-grid">
+        <div class="safety-content">
+          <div class="section-label">Road Safety</div>
+          <h2 class="section-title reveal">2025 Was the Deadliest Year on Halifax Roads</h2>
+          <p class="section-desc reveal">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere diam in tellus pretium, sit amet pharetra velit faucibus. Nam lacinia hendrerit sapien, ut sagittis tortor molestie quis. Donec ut leo sed ipsum volutpat posuere. Phasellus interdum metus et fermentum pulvinar.
+          </p>
+          <a href="#act" class="btn btn-primary reveal">Demand Safer Streets &rarr;</a>
+        </div>
+        <div class="safety-points stagger-children">
+          <div class="safety-point reveal">
+            <div class="safety-stat">21</div>
+            <div class="safety-point-text">
+              <h4>Deaths in 2025</h4>
+              <p>The deadliest year in recent memory. A 21-year-old student killed at a crosswalk. A 3-year-old struck in his own yard. These are not statistics. They are people who deserved safer streets.</p>
+            </div>
+          </div>
+          <div class="safety-point reveal">
+            <div class="safety-stat">0</div>
+            <div class="safety-point-text">
+              <h4>The Vision Zero Target</h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere diam in tellus pretium, sit amet pharetra velit faucibus.</p>
+            </div>
+          </div>
+          <div class="safety-point reveal">
+            <div class="safety-stat">📉</div>
+            <div class="safety-point-text">
+              <h4>Better is Possible</h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere diam in tellus pretium, sit amet pharetra velit faucibus.</p>
+            </div>
+          </div>
+          <div class="safety-point reveal">
+            <div class="safety-stat">&#x1F6A7;</div>
+            <div class="safety-point-text">
+              <h4>Infrastructure Is the Answer</h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere diam in tellus pretium, sit amet pharetra velit faucibus.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── BIKE LANES ─── -->
+  <section class="section bikes-section" id="bikes">
+    <div class="section-inner">
+      <div class="bikes-grid">
+        <div class="bikes-content">
+          <div class="section-label">Protected Bike Lanes</div>
+          <h2 class="section-title reveal">Build the Bike Network. Finish What We Started.</h2>
+          <p class="section-desc reveal">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere diam in tellus pretium, sit amet pharetra velit faucibus. Nam lacinia hendrerit sapien, ut sagittis tortor molestie quis. Donec ut leo sed ipsum volutpat posuere. Phasellus interdum metus et fermentum pulvinar.
+          </p>
+          <a href="#act" class="btn btn-primary reveal">Demand A Completed Network &rarr;</a>
+        </div>
+        <div class="bikes-points stagger-children">
+          <div class="bike-point reveal">
+            <div class="bike-point-icon">🚴</div>
+            <div class="bike-point-text">
+              <h4>Separated Lanes Work</h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere diam in tellus pretium, sit amet pharetra velit faucibus.</p>
+            </div>
+          </div>
+          <div class="bike-point reveal">
+            <div class="bike-point-icon">🛡️</div>
+            <div class="bike-point-text">
+              <h4>Paint Is Not Protection</h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere diam in tellus pretium, sit amet pharetra velit faucibus.</p>
+            </div>
+          </div>
+          <div class="bike-point reveal">
+            <div class="bike-point-icon">🧱</div>
+            <div class="bike-point-text">
+              <h4>Half Complete</h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere diam in tellus pretium, sit amet pharetra velit faucibus.</p>
+            </div>
+          </div>
+          <div class="bike-point reveal">
+            <div class="bike-point-icon">🚸</div>
+            <div class="bike-point-text">
+              <h4>Better for Everyone</h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere diam in tellus pretium, sit amet pharetra velit faucibus.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─── -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <svg viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg" width="24" height="24" style="vertical-align: middle; margin-right: 0.4rem;">
+          <circle cx="21" cy="21" r="21" fill="#003DA5"/>
+          <path d="M0 0 L17 17 M25 17 L42 0 M0 42 L17 25 M25 25 L42 42" stroke="#FFD100" stroke-width="5.5" stroke-linecap="round"/>
+          <circle cx="21" cy="21" r="9" fill="#FFD100"/>
+          <path d="M1.5 1.5 L6 3.5 M1.5 1.5 L3.5 6" stroke="#FFD100" stroke-width="2" stroke-linecap="round"/>
+          <path d="M40.5 1.5 L36 3.5 M40.5 1.5 L38.5 6" stroke="#FFD100" stroke-width="2" stroke-linecap="round"/>
+          <path d="M1.5 40.5 L6 38.5 M1.5 40.5 L3.5 36" stroke="#FFD100" stroke-width="2" stroke-linecap="round"/>
+          <path d="M40.5 40.5 L36 38.5 M40.5 40.5 L38.5 36" stroke="#FFD100" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        Haligonians <span>Against Austerity</span>
+      </div>
+      <div class="footer-links">
+        <a href="#cuts">The Cuts</a>
+        <a href="#transit">Transit</a>
+        <a href="#forum">Forum</a>
+        <a href="#safety">Road Safety</a>
+        <a href="#bikes">Bike Lanes</a>
+        <a href="#act">Take Action</a>
+      </div>
+      <div class="footer-copy">
+        &copy; 2026 Geoffrey Caven - A resident of District 8. Not affiliated with any politicion, lobbyist, or industry group.
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+
+</body>
+</html>
