@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Haligonians Against Austerity | Stop The Cuts!</title>
+  <title>HRM Against Austerity | Stop The Cuts!</title>
   <meta name="description" content="Tell Halifax Regional Council to stop disastrous cuts. Invest in transit, housing, and our future.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,20 +15,19 @@
   <!-- ─── HEADER ─── -->
   <header class="site-header" id="siteHeader">
     <div class="header-inner">
-      <a href="#" class="site-logo">
-        <div class="logo-icon"><svg viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <a href="#top" class="site-logo" aria-label="HRM Against Austerity - return to top">
+        <div class="logo-icon"><svg viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <circle cx="21" cy="21" r="21" fill="#003DA5"/>
           <path d="M0 0 L17 17 M25 17 L42 0 M0 42 L17 25 M25 25 L42 42" stroke="#FFD100" stroke-width="5.5" stroke-linecap="round"/>
           <circle cx="21" cy="21" r="9" fill="#FFD100"/>
-          <!-- Saltire arrows at tips -->
           <path d="M1.5 1.5 L6 3.5 M1.5 1.5 L3.5 6" stroke="#FFD100" stroke-width="2" stroke-linecap="round"/>
           <path d="M40.5 1.5 L36 3.5 M40.5 1.5 L38.5 6" stroke="#FFD100" stroke-width="2" stroke-linecap="round"/>
           <path d="M1.5 40.5 L6 38.5 M1.5 40.5 L3.5 36" stroke="#FFD100" stroke-width="2" stroke-linecap="round"/>
           <path d="M40.5 40.5 L36 38.5 M40.5 40.5 L38.5 36" stroke="#FFD100" stroke-width="2" stroke-linecap="round"/>
         </svg></div>
-        <div class="logo-text">Haligonians<br><span>Against Austerity</span></div>
+        <div class="logo-text">HRM<br><span>Against Austerity</span></div>
       </a>
-      <nav class="header-nav" id="navMenu">
+      <nav class="header-nav" id="navMenu" aria-label="Main navigation">
         <a href="#cuts">The Cuts</a>
         <a href="#transit">Transit</a>
         <a href="#forum">Forum</a>
@@ -36,7 +35,7 @@
         <a href="#bikes">Bike Lanes</a>
         <a href="#act" class="nav-cta">Take Action</a>
       </nav>
-      <button class="mobile-menu-btn" id="menuBtn" aria-label="Toggle menu">&#9776;</button>
+      <button class="mobile-menu-btn" id="menuBtn" aria-label="Main menu" aria-expanded="false" aria-controls="navMenu">&#9776;</button>
     </div>
   </header>
 
@@ -44,10 +43,10 @@
   <section class="hero" id="top">
     <div class="hero-inner">
       <div class="hero-content">
-        <h1>Halifax Can't Afford <em>Austerity</em></h1>
+        <h1><span id="communityName" aria-live="polite" aria-atomic="true">Halifax</span><br>Can't Afford <em>Austerity</em></h1>
         <p class="hero-subtitle">Tell Council to Stop the Disastrous Cuts!</p>
         <p class="hero-description">
-          Halifax is one of the fastest-growing cities in Canada, and you can't cut your way to prosperity.
+          HRM is one of the fastest-growing municipalities in Canada, and you can't cut your way to prosperity.
           The proposed 10.5% tax increase works out to roughly $20 per month for the average household.
           That's less than a quarter the cost of a monthly transit pass, and it pays for the services that make this city liveable. We need to invest in our future!
         </p>
@@ -57,28 +56,14 @@
         </div>
       </div>
 
-      <!-- ─── ACTION FORM ─── -->
+      <!-- ─── ACTION CARD ─── -->
       <div class="hero-card" id="act">
-        <h2>Email Your Councillor</h2>
-        <p class="card-sub">Your message will be sent directly to your district councillor and the Mayor.</p>
-        <form id="emailForm">
-          <div class="form-row">
-            <div class="form-group">
-              <label for="firstName">First Name</label>
-              <input type="text" id="firstName" name="firstName" placeholder="Jane Q." required>
-            </div>
-            <div class="form-group">
-              <label for="lastName">Last Name</label>
-              <input type="text" id="lastName" name="lastName" placeholder="Halifax" required>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="email">Your Email</label>
-            <input type="email" id="email" name="email" placeholder="you@example.com" required>
-          </div>
+        <h2><button id="cardToggle" aria-expanded="false" aria-controls="heroCardBody">Email Your Councillor</button></h2>
+        <div class="hero-card-body" id="heroCardBody">
+          <p class="card-sub">Select your district below. We'll open your email client with your councillor and the Mayor already in the To field.</p>
           <div class="form-group">
             <label for="district">Your District</label>
-            <select id="district" name="district" required>
+            <select id="district" name="district">
               <option value="" disabled selected>Select your district&hellip;</option>
               <option value="1">District 1 — Waverley–Fall River–Musquodoboit Valley (Cathy Deagle Gammon)</option>
               <option value="2">District 2 — Lawrencetown–The Lakes–Chezzetcook–Eastern Shore (David Hendsbee)</option>
@@ -98,25 +83,28 @@
               <option value="16">District 16 — Bedford–Wentworth (Jean St-Amand)</option>
             </select>
           </div>
-          <div class="form-group">
-            <label for="message">Your Message</label>
-            <textarea id="message" name="message"></textarea>
+          <button id="mailtoLink" class="form-submit" disabled>Open Email Client &rarr;</button>
+          <p class="card-sub" style="margin-top: 0.5rem">Not sure which district you're in? <a href="https://www.halifax.ca/city-hall/districts-councillors/district-look" target="_blank" rel="noopener">Look it up here <span class="sr-only">(opens in a new tab)</span></a></p>
+          <div class="email-tips">
+            <h3>Tips for an Effective Email</h3>
+            <ul>
+              <li>Tell council that services matter to you, and explain why</li>
+              <li>How will the proposed cuts affect you personally?</li>
+              <li>Let them know you're willing to pay to live in a well-run city</li>
+              <li>Include a clear ask: "I oppose transit cuts" or "fund the Forum rebuild"</li>
+              <li>Keep it short, personal, and respectful</li>
+            </ul>
           </div>
-          <button type="submit" class="form-submit">Send to Council &rarr;</button>
-          <p class="form-note">
-            Your name and email will be included so Council can respond directly to you.
-            We will never retain your information or share your information with third parties.
-          </p>
-        </form>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ─── PROPOSED CUTS ─── -->
-  <section class="section cuts-section" id="cuts">
+  <section class="section cuts-section" id="cuts" aria-labelledby="cuts-heading">
     <div class="section-inner">
       <div class="section-label">The Proposed Cuts</div>
-      <h2 class="section-title reveal">This Is What Austerity Actually Looks Like</h2>
+      <h2 class="section-title reveal" id="cuts-heading">This Is What Austerity Actually Looks Like</h2>
       <p class="section-desc reveal">
         These aren't hypothetical. These are the real service cuts being proposed to HRM councillors.
         Read the list and ask yourself: is this the city you want to live in?
@@ -151,12 +139,12 @@
   </section>
 
   <!-- ─── TRANSIT INVESTMENT ─── -->
-  <section class="section transit-section" id="transit">
+  <section class="section transit-section" id="transit" aria-labelledby="transit-heading">
     <div class="section-inner">
       <div class="transit-grid">
         <div class="transit-content">
           <div class="section-label">Invest in Transit</div>
-          <h2 class="section-title reveal">Halifax Needs More Transit, Not Less</h2>
+          <h2 class="section-title reveal" id="transit-heading">HRM Needs More Transit, Not Less</h2>
           <p class="section-desc reveal">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere diam in tellus pretium, sit amet pharetra velit faucibus. Nam lacinia hendrerit sapien, ut sagittis tortor molestie quis. Donec ut leo sed ipsum volutpat posuere. Phasellus interdum metus et fermentum pulvinar.
           </p>
@@ -166,35 +154,35 @@
           <li class="reveal">
             <div class="transit-point-icon">🚌</div>
             <div class="transit-point-text">
-              <h4>Expand Bus Service</h4>
+              <h3>Expand Bus Service</h3>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere diam in tellus pretium, sit amet pharetra velit faucibus.</p>
             </div>
           </li>
           <li class="reveal">
             <div class="transit-point-icon">⛴️</div>
             <div class="transit-point-text">
-              <h4>Build the Mill Cove Ferry</h4>
+              <h3>Build the Mill Cove Ferry</h3>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere diam in tellus pretium, sit amet pharetra velit faucibus.</p>
             </div>
           </li>
           <li class="reveal">
             <div class="transit-point-icon">💰</div>
             <div class="transit-point-text">
-              <h4>Lower Household Costs</h4>
+              <h3>Lower Household Costs</h3>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere diam in tellus pretium, sit amet pharetra velit faucibus.</p>
             </div>
           </li>
           <li class="reveal">
             <div class="transit-point-icon">🌎</div>
             <div class="transit-point-text">
-              <h4>Meet Climate Commitments</h4>
+              <h3>Meet Climate Commitments</h3>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere diam in tellus pretium, sit amet pharetra velit faucibus.</p>
             </div>
           </li>
           <li class="reveal">
             <div class="transit-point-icon">📈</div>
             <div class="transit-point-text">
-              <h4>Support Economic Growth</h4>
+              <h3>Support Economic Growth</h3>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere diam in tellus pretium, sit amet pharetra velit faucibus.</p>
             </div>
           </li>
@@ -204,12 +192,12 @@
   </section>
 
   <!-- ─── HALIFAX FORUM ─── -->
-  <section class="section forum-section" id="forum">
+  <section class="section forum-section" id="forum" aria-labelledby="forum-heading">
     <div class="section-inner">
       <div class="forum-grid">
         <div class="forum-content">
           <div class="section-label">The Halifax Forum</div>
-          <h2 class="section-title reveal">Community Hubs Are Not Optional</h2>
+          <h2 class="section-title reveal" id="forum-heading">Community Hubs Are Not Optional</h2>
           <p class="section-desc reveal">
             The Halifax Forum has served the Peninsula's 100,000 residents for generations as a place to skate, gather, and connect.
             After four consecutive councils and more than a decade of planning, the reconstruction was finally moving forward.
@@ -221,28 +209,28 @@
           <div class="forum-point reveal">
             <div class="forum-point-icon">🏛️</div>
             <div class="forum-point-text">
-              <h4>Third Spaces Matter</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere diam in tellus pretium, sit amet pharetra velit faucibus./p>
+              <h3>Third Spaces Matter</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere diam in tellus pretium, sit amet pharetra velit faucibus.</p>
             </div>
           </div>
           <div class="forum-point reveal">
             <div class="forum-point-icon">🏗️</div>
             <div class="forum-point-text">
-              <h4>A Decade of Planning</h4>
+              <h3>A Decade of Planning</h3>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere diam in tellus pretium, sit amet pharetra velit faucibus.</p>
             </div>
           </div>
           <div class="forum-point reveal">
             <div class="forum-point-icon">⚠️</div>
             <div class="forum-point-text">
-              <h4>The Building Is Failing</h4>
+              <h3>The Building Is Failing</h3>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere diam in tellus pretium, sit amet pharetra velit faucibus.</p>
             </div>
           </div>
           <div class="forum-point reveal">
             <div class="forum-point-icon">💸</div>
             <div class="forum-point-text">
-              <h4>Delay Costs More</h4>
+              <h3>Delay Costs More</h3>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere diam in tellus pretium, sit amet pharetra velit faucibus.</p>
             </div>
           </div>
@@ -252,12 +240,12 @@
   </section>
 
   <!-- ─── ROAD SAFETY ─── -->
-  <section class="section safety-section" id="safety">
+  <section class="section safety-section" id="safety" aria-labelledby="safety-heading">
     <div class="section-inner">
       <div class="safety-grid">
         <div class="safety-content">
           <div class="section-label">Road Safety</div>
-          <h2 class="section-title reveal">2025 Was the Deadliest Year on Halifax Roads</h2>
+          <h2 class="section-title reveal" id="safety-heading">2025 Was the Deadliest Year on HRM Roads</h2>
           <p class="section-desc reveal">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere diam in tellus pretium, sit amet pharetra velit faucibus. Nam lacinia hendrerit sapien, ut sagittis tortor molestie quis. Donec ut leo sed ipsum volutpat posuere. Phasellus interdum metus et fermentum pulvinar.
           </p>
@@ -267,28 +255,28 @@
           <div class="safety-point reveal">
             <div class="safety-stat">21</div>
             <div class="safety-point-text">
-              <h4>Deaths in 2025</h4>
+              <h3>Deaths in 2025</h3>
               <p>The deadliest year in recent memory. A 21-year-old student killed at a crosswalk. A 3-year-old struck in his own yard. These are not statistics. They are people who deserved safer streets.</p>
             </div>
           </div>
           <div class="safety-point reveal">
             <div class="safety-stat">0</div>
             <div class="safety-point-text">
-              <h4>The Vision Zero Target</h4>
+              <h3>The Vision Zero Target</h3>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere diam in tellus pretium, sit amet pharetra velit faucibus.</p>
             </div>
           </div>
           <div class="safety-point reveal">
             <div class="safety-stat">📉</div>
             <div class="safety-point-text">
-              <h4>Better is Possible</h4>
+              <h3>Better is Possible</h3>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere diam in tellus pretium, sit amet pharetra velit faucibus.</p>
             </div>
           </div>
           <div class="safety-point reveal">
             <div class="safety-stat">&#x1F6A7;</div>
             <div class="safety-point-text">
-              <h4>Infrastructure Is the Answer</h4>
+              <h3>Infrastructure Is the Answer</h3>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere diam in tellus pretium, sit amet pharetra velit faucibus.</p>
             </div>
           </div>
@@ -298,12 +286,12 @@
   </section>
 
   <!-- ─── BIKE LANES ─── -->
-  <section class="section bikes-section" id="bikes">
+  <section class="section bikes-section" id="bikes" aria-labelledby="bikes-heading">
     <div class="section-inner">
       <div class="bikes-grid">
         <div class="bikes-content">
           <div class="section-label">Protected Bike Lanes</div>
-          <h2 class="section-title reveal">Build the Bike Network. Finish What We Started.</h2>
+          <h2 class="section-title reveal" id="bikes-heading">Build the Bike Network. Finish What We Started.</h2>
           <p class="section-desc reveal">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere diam in tellus pretium, sit amet pharetra velit faucibus. Nam lacinia hendrerit sapien, ut sagittis tortor molestie quis. Donec ut leo sed ipsum volutpat posuere. Phasellus interdum metus et fermentum pulvinar.
           </p>
@@ -313,28 +301,28 @@
           <div class="bike-point reveal">
             <div class="bike-point-icon">🚴</div>
             <div class="bike-point-text">
-              <h4>Separated Lanes Work</h4>
+              <h3>Separated Lanes Work</h3>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere diam in tellus pretium, sit amet pharetra velit faucibus.</p>
             </div>
           </div>
           <div class="bike-point reveal">
             <div class="bike-point-icon">🛡️</div>
             <div class="bike-point-text">
-              <h4>Paint Is Not Protection</h4>
+              <h3>Paint Is Not Protection</h3>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere diam in tellus pretium, sit amet pharetra velit faucibus.</p>
             </div>
           </div>
           <div class="bike-point reveal">
             <div class="bike-point-icon">🧱</div>
             <div class="bike-point-text">
-              <h4>Half Complete</h4>
+              <h3>Half Complete</h3>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere diam in tellus pretium, sit amet pharetra velit faucibus.</p>
             </div>
           </div>
           <div class="bike-point reveal">
             <div class="bike-point-icon">🚸</div>
             <div class="bike-point-text">
-              <h4>Better for Everyone</h4>
+              <h3>Better for Everyone</h3>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere diam in tellus pretium, sit amet pharetra velit faucibus.</p>
             </div>
           </div>
@@ -347,7 +335,7 @@
   <footer class="site-footer">
     <div class="footer-inner">
       <div class="footer-brand">
-        <svg viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg" width="24" height="24" style="vertical-align: middle; margin-right: 0.4rem;">
+        <svg viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg" width="24" height="24" style="vertical-align: middle; margin-right: 0.4rem;" aria-hidden="true">
           <circle cx="21" cy="21" r="21" fill="#003DA5"/>
           <path d="M0 0 L17 17 M25 17 L42 0 M0 42 L17 25 M25 25 L42 42" stroke="#FFD100" stroke-width="5.5" stroke-linecap="round"/>
           <circle cx="21" cy="21" r="9" fill="#FFD100"/>
@@ -356,16 +344,16 @@
           <path d="M1.5 40.5 L6 38.5 M1.5 40.5 L3.5 36" stroke="#FFD100" stroke-width="2" stroke-linecap="round"/>
           <path d="M40.5 40.5 L36 38.5 M40.5 40.5 L38.5 36" stroke="#FFD100" stroke-width="2" stroke-linecap="round"/>
         </svg>
-        Haligonians <span>Against Austerity</span>
+        HRM <span>Against Austerity</span>
       </div>
-      <div class="footer-links">
+      <nav class="footer-links" aria-label="Footer navigation">
         <a href="#cuts">The Cuts</a>
         <a href="#transit">Transit</a>
         <a href="#forum">Forum</a>
         <a href="#safety">Road Safety</a>
         <a href="#bikes">Bike Lanes</a>
         <a href="#act">Take Action</a>
-      </div>
+      </nav>
       <div class="footer-copy">
         &copy; 2026 Geoffrey Caven - A resident of District 8. Not affiliated with any politicion, lobbyist, or industry group.
       </div>

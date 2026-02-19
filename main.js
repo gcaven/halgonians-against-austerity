@@ -1,13 +1,71 @@
-/* ─── DEFAULT EMAIL MESSAGE ─── */
-const defaultMessage = `Dear Mayor Fillmore and Councillor,
+/* ─── COUNCILLOR EMAILS ─── */
+const councillorEmails = {
+  '1':  'cathy.deaglegammon@halifax.ca',
+  '2':  'david.hendsbee@halifax.ca',
+  '3':  'becky.kent@halifax.ca',
+  '4':  'trish.purdy@halifax.ca',
+  '5':  'sam.austin@halifax.ca',
+  '6':  'tony.mancini@halifax.ca',
+  '7':  'laura.white@halifax.ca',
+  '8':  'virginia.hinch@halifax.ca',
+  '9':  'shawn.cleary@halifax.ca',
+  '10': 'kathryn.morse@halifax.ca',
+  '11': 'cuttelp@halifax.ca',
+  '12': 'Janet.steele@halifax.ca',
+  '13': 'nancy.hartling@halifax.ca',
+  '14': 'john.young@halifax.ca',
+  '15': 'billy.gillis@halifax.ca',
+  '16': 'jean.st-amand@halifax.ca',
+};
+const mayorEmail = 'mayor@halifax.ca';
+const clerkEmail = 'clerks@halifax.ca';
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere diam in tellus pretium, sit amet pharetra velit faucibus. Nam lacinia hendrerit sapien, ut sagittis tortor molestie quis. Donec ut leo sed ipsum volutpat posuere. Phasellus interdum metus et fermentum pulvinar. Nulla accumsan aliquet vulputate. Pellentesque sodales ipsum turpis, eu tristique dui ultricies eget. Nunc lectus velit, consectetur vel consectetur nec, luctus non turpis. Fusce pulvinar ut magna sit amet sodales. Etiam vel condimentum mi. Pellentesque cursus, nulla ac facilisis mollis, orci nisi lobortis purus, in molestie nunc nulla id mi. Suspendisse non justo a magna gravida lacinia pulvinar sit amet justo. Donec ut ipsum non elit consectetur vehicula vitae nec turpis. Curabitur scelerisque ac erat quis venenatis. Duis id pretium urna. Etiam odio leo, iaculis eu vulputate eget, finibus eu felis. Fusce quis libero ex.
+/* ─── ROTATING COMMUNITY NAME ─── */
+const communities = [
+  'Halifax', 'Dartmouth', 'Bedford', 'Sackville', 'Cole Harbour',
+  'Eastern Passage', 'Spryfield', 'Clayton Park', 'Fall River',
+  'Timberlea', 'Herring Cove', 'Beaver Bank',
+  'Musquodoboit', 'Porters Lake', 'Waverley', 'Lawrencetown',
+  'Preston', 'Cherry Brook', 'Lake Echo', 'Sambro', 'Prospect',
+  'Beechville', 'Woodside', 'Burnside', 'Armdale', 'Fairview',
+  'Rockingham', 'Westphal', 'Sheet Harbour', 'Tantallon', 'Timberlea',
+  'Jollimore', 'Purcells Cove', 'Lucasville',
+];
 
-Cras neque urna, euismod in eros eleifend, tristique vulputate lacus. Vivamus malesuada ut nibh in consequat. Maecenas commodo mi justo. Aenean sed condimentum sapien. Suspendisse dapibus lacus at porttitor ullamcorper. Donec nunc lacus, sagittis in egestas ac, fringilla in tellus. Duis sit amet erat maximus, gravida neque sed, feugiat magna. Donec cursus efficitur mi, tristique imperdiet nunc vulputate vitae. Interdum et malesuada fames ac ante ipsum primis in faucibus. Cras ultricies felis vel eros hendrerit, ut malesuada tortor ultrices. Nullam non nibh ac arcu luctus dapibus. Curabitur vitae purus et magna suscipit ornare a vel sapien. Donec a lorem mi. Donec condimentum tortor sed elementum maximus. Aenean tempor nulla eget lacinia vulputate.
+const communityEl = document.getElementById('communityName');
+let shuffled = [];
 
-Sincerely,`;
+function shuffle(arr) {
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
 
-document.getElementById('message').value = defaultMessage;
+function pickCommunity() {
+  if (shuffled.length === 0) {
+    shuffled = shuffle(communities);
+    // avoid repeating the name currently shown
+    if (shuffled[0] === communityEl.textContent) {
+      shuffled.push(shuffled.shift());
+    }
+  }
+  const name = shuffled.pop();
+  communityEl.style.opacity = 0;
+  setTimeout(() => {
+    communityEl.textContent = name;
+    communityEl.style.opacity = 1;
+  }, 400);
+}
+
+// Only run the rotator if the user hasn't requested reduced motion
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (!prefersReducedMotion) {
+  communityEl.style.transition = 'opacity 0.4s ease';
+  setInterval(pickCommunity, 3000);
+}
 
 /* ─── HEADER SCROLL ─── */
 const header = document.getElementById('siteHeader');
@@ -16,8 +74,20 @@ window.addEventListener('scroll', () => {
 });
 
 /* ─── MOBILE NAV ─── */
-document.getElementById('menuBtn').addEventListener('click', () => {
-  document.getElementById('navMenu').classList.toggle('open');
+const menuBtn = document.getElementById('menuBtn');
+const navMenu = document.getElementById('navMenu');
+
+menuBtn.addEventListener('click', () => {
+  const isOpen = navMenu.classList.toggle('open');
+  menuBtn.setAttribute('aria-expanded', isOpen);
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && navMenu.classList.contains('open')) {
+    navMenu.classList.remove('open');
+    menuBtn.setAttribute('aria-expanded', 'false');
+    menuBtn.focus();
+  }
 });
 
 /* ─── SCROLL REVEAL ─── */
@@ -50,17 +120,43 @@ const navObserver = new IntersectionObserver((entries) => {
 
 sections.forEach(section => navObserver.observe(section));
 
-/* ─── FORM HANDLING ─── */
-document.getElementById('emailForm').addEventListener('submit', (e) => {
-  e.preventDefault();
-  const form = e.target;
-  const data = {
-    firstName: form.firstName.value,
-    lastName: form.lastName.value,
-    email: form.email.value,
-    district: form.district.value,
-    message: form.message.value
-  };
-  // TODO: Actually send the email
-  alert('Thank you, ' + data.firstName + '! Someday soon this will actually send an email!');
+/* ─── MOBILE CARD TOGGLE ─── */
+const cardToggle = document.getElementById('cardToggle');
+cardToggle.addEventListener('click', () => {
+  const card = document.querySelector('.hero-card');
+  if (window.innerWidth <= 900) {
+    const isExpanded = card.classList.toggle('expanded');
+    cardToggle.setAttribute('aria-expanded', isExpanded);
+  }
 });
+
+/* ─── MAILTO BUTTON ─── */
+const districtSelect = document.getElementById('district');
+const mailtoBtn = document.getElementById('mailtoLink');
+
+function buildMailtoHref() {
+  const district = districtSelect.value;
+  if (!district) return null;
+  const councillor = councillorEmails[district];
+  const to = [councillor, mayorEmail].join(',');
+  const subject = encodeURIComponent('Please reject austerity and invest in HRM');
+  return `mailto:${to}?cc=${encodeURIComponent(clerkEmail)}&subject=${subject}`;
+}
+
+function updateMailto() {
+  const href = buildMailtoHref();
+  if (!href) {
+    mailtoBtn.disabled = true;
+    return;
+  }
+  mailtoBtn.disabled = false;
+}
+
+mailtoBtn.addEventListener('click', () => {
+  const href = buildMailtoHref();
+  if (href) {
+    window.location.href = href;
+  }
+});
+
+districtSelect.addEventListener('change', updateMailto);
