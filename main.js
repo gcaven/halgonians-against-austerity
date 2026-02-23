@@ -122,12 +122,43 @@ sections.forEach(section => navObserver.observe(section));
 
 /* ─── MOBILE CARD TOGGLE ─── */
 const cardToggle = document.getElementById('cardToggle');
-cardToggle.addEventListener('click', () => {
-  const card = document.querySelector('.hero-card');
-  if (window.innerWidth <= 900) {
-    const isExpanded = card.classList.toggle('expanded');
-    cardToggle.setAttribute('aria-expanded', isExpanded);
+const heroCard = document.querySelector('.hero-card');
+
+function toggleCard() {
+  const isExpanded = heroCard.classList.toggle('expanded');
+  cardToggle.setAttribute('aria-expanded', isExpanded);
+}
+
+// On mobile, clicking anywhere on the collapsed card expands it
+heroCard.addEventListener('click', (e) => {
+  if (window.innerWidth <= 900 && !heroCard.classList.contains('expanded')) {
+    toggleCard();
   }
+});
+
+// Clicking the h2 / toggle button area collapses when expanded
+heroCard.querySelector('h2').addEventListener('click', (e) => {
+  if (window.innerWidth <= 900 && heroCard.classList.contains('expanded')) {
+    e.stopPropagation();
+    toggleCard();
+  }
+});
+
+/* ─── "TAKE ACTION" LINKS ─── */
+document.querySelectorAll('a[href="#act"]').forEach(link => {
+  link.addEventListener('click', (e) => {
+    if (window.innerWidth <= 900) {
+      // Mobile: scroll to card and expand it
+      heroCard.scrollIntoView({ behavior: 'smooth' });
+      if (!heroCard.classList.contains('expanded')) {
+        setTimeout(toggleCard, 400);
+      }
+    } else {
+      // Desktop: just focus the district selector without scrolling
+      e.preventDefault();
+      districtSelect.focus();
+    }
+  });
 });
 
 /* ─── MAILTO BUTTON ─── */
@@ -139,8 +170,7 @@ function buildMailtoHref() {
   if (!district) return null;
   const councillor = councillorEmails[district];
   const to = [councillor, mayorEmail].join(',');
-  const subject = encodeURIComponent('Please reject austerity and invest in HRM');
-  return `mailto:${to}?cc=${encodeURIComponent(clerkEmail)}&subject=${subject}`;
+  return `mailto:${to}?cc=${encodeURIComponent(clerkEmail)}`;
 }
 
 function updateMailto() {

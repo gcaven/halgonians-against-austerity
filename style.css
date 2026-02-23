@@ -172,15 +172,23 @@ body {
   position: relative;
   background: var(--blue);
   overflow: hidden;
-  background-image: url(./hero-ferry.jpg);
-  background-size: cover;
-  background-position: center;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
 }
 
 .hero::before {
   content: '';
   position: absolute;
   inset: 0;
+  z-index: 1;
   background:
     radial-gradient(ellipse 80% 60% at 20% 80%, rgba(255, 209, 0, 0.15), transparent),
     radial-gradient(ellipse 60% 50% at 80% 20%, rgba(26, 111, 255, 0.2), transparent),
@@ -192,6 +200,7 @@ body {
   content: '';
   position: absolute;
   inset: 0;
+  z-index: 2;
   background:
     linear-gradient(135deg,
       transparent 43%, rgba(255, 209, 0, 0.05) 43%, rgba(255, 209, 0, 0.05) 45.5%,
@@ -209,7 +218,7 @@ body {
   margin: 0 auto;
   padding: 6rem 1.5rem 4rem;
   position: relative;
-  z-index: 1;
+  z-index: 3;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
@@ -998,9 +1007,22 @@ body {
 @media (max-width: 900px) {
   .hero {
     min-height: auto;
-    background-size: 100% auto;
-    background-position: center top;
-    background-repeat: no-repeat;
+  }
+
+  .hero-bg {
+    height: auto;
+    bottom: auto;
+    width: 100%;
+    object-fit: none;
+    object-position: unset;
+    -webkit-mask-image: linear-gradient(to bottom, #000 40%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 40%, transparent 100%);
+  }
+
+  .hero::before,
+  .hero::after {
+    bottom: auto;
+    height: 100vh;
   }
 
   .hero-inner {
@@ -1008,18 +1030,6 @@ body {
     gap: 0;
     padding-top: 6rem;
     padding-bottom: 2.5rem;
-  }
-
-  .hero::before,
-  .hero::after {
-    bottom: auto;
-    height: 100vw; /* roughly matches the image aspect ratio */
-  }
-
-  .hero::before {
-    background:
-      radial-gradient(ellipse 80% 60% at 20% 80%, rgba(255, 209, 0, 0.15), transparent),
-      linear-gradient(to bottom, rgba(0, 36, 95, 0.75) 0%, rgba(0, 36, 95, 0.85) 60%, rgba(0, 36, 95, 0.95) 100%);
   }
 
   /* Card becomes a collapsible section below hero content */
@@ -1033,6 +1043,11 @@ body {
     box-shadow: none;
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
+    cursor: pointer;
+  }
+
+  .hero-card.expanded {
+    cursor: default;
   }
 
   .hero-card h2 {
