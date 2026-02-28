@@ -446,7 +446,7 @@ body {
   text-decoration: none;
 }
 
-.form-submit:hover {
+.form-submit:not(:disabled):hover {
   transform: translateY(-1px);
   box-shadow: 0 6px 20px rgba(255, 209, 0, 0.35);
 }
@@ -494,6 +494,114 @@ body {
   left: 0;
   color: var(--gold);
   font-weight: 700;
+}
+
+/* ─── CITATIONS ─── */
+.cite {
+  position: relative;
+  font-size: 0.65em;
+  vertical-align: super;
+  line-height: 0;
+  font-weight: 700;
+  text-decoration: none;
+  margin-left: 0.1em;
+  color: var(--gold);
+  transition: color 0.2s;
+}
+
+.cite:hover {
+  color: var(--gold-light);
+}
+
+.cite::after {
+  content: attr(data-tip);
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--dark);
+  color: var(--white);
+  font-size: 0.85rem;
+  font-weight: 500;
+  line-height: 1.4;
+  vertical-align: baseline;
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  z-index: 10;
+}
+
+.cite:hover::after,
+.cite:focus::after {
+  opacity: 1;
+}
+
+.forum-section .cite,
+.bikes-section .cite,
+.highlight-banner .cite {
+  color: var(--blue);
+}
+
+.forum-section .cite:hover,
+.bikes-section .cite:hover,
+.highlight-banner .cite:hover {
+  color: var(--blue-light);
+}
+
+/* ─── SOURCES SECTION ─── */
+.sources-section {
+  background: var(--dark);
+  padding: 3rem 1.5rem;
+}
+
+.sources-heading {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 1.25rem;
+}
+
+.sources-list {
+  list-style: none;
+  counter-reset: sources;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.sources-list li {
+  counter-increment: sources;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.45);
+  padding-left: 2rem;
+  position: relative;
+}
+
+.sources-list li::before {
+  content: counter(sources) ".";
+  position: absolute;
+  left: 0;
+  color: rgba(255, 255, 255, 0.35);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.sources-list a {
+  color: rgba(255, 255, 255, 0.55);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.sources-list a:hover {
+  color: var(--gold);
 }
 
 /* ─── INFO SECTIONS ─── */
