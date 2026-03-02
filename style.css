@@ -461,6 +461,61 @@ body {
   cursor: not-allowed;
 }
 
+/* ─── ACTION BUTTONS ROW ─── */
+.action-buttons {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.action-buttons .mit {
+  flex: 1;
+  margin-top: 0.5rem;
+}
+
+.mit.mit-secondary {
+  background: transparent;
+  color: var(--gold);
+  border: 2px solid var(--gold);
+}
+
+.mit.mit-secondary:not(:disabled):hover {
+  background: rgba(255, 209, 0, 0.1);
+}
+
+.mit.mit-secondary:disabled {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.copy-btn-wrap {
+  position: relative;
+  flex: 1;
+}
+
+.copy-toast {
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  background: var(--blue-dark);
+  color: var(--gold);
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.35rem 0.85rem;
+  border-radius: 8px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.copy-toast.visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
 .email-tips {
   margin-top: 1.5rem;
   padding-top: 1.25rem;
@@ -1271,13 +1326,12 @@ body {
   }
 
   .hero-bg {
-    height: auto;
-    bottom: auto;
+    height: 55vh;
     width: 100%;
-    object-fit: none;
-    object-position: unset;
-    -webkit-mask-image: linear-gradient(to bottom, #000 40%, transparent 100%);
-    mask-image: linear-gradient(to bottom, #000 40%, transparent 100%);
+    object-fit: cover;
+    object-position: center;
+    -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, #000 30%, transparent 72%);
+    mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, #000 30%, transparent 72%);
   }
 
   .hero::before,
@@ -1375,6 +1429,13 @@ body {
 
   .mobile-menu-btn {
     display: block;
+  }
+}
+
+@media (max-width: 1050px) {
+  .action-buttons {
+    flex-direction: column;
+    gap: 0.5rem;
   }
 }
 

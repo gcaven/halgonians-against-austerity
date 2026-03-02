@@ -161,25 +161,38 @@ document.querySelectorAll('a[href="#act"]').forEach(link => {
   });
 });
 
-/* ─── MAILTO BUTTON ─── */
+/* ─── EMAIL BUTTONS ─── */
 const districtSelect = document.getElementById('district');
 const mailtoBtn = document.getElementById('mailtoLink');
+const copyBtn = document.getElementById('copyEmails');
+const copyConfirm = document.getElementById('copyConfirm');
 
-function buildMailtoHref() {
+function getRecipientEmails() {
   const district = districtSelect.value;
   if (!district) return null;
-  const councillor = councillorEmails[district];
-  const to = [councillor, mayorEmail].join(',');
+  if (district === 'all') {
+    return Object.values(councillorEmails);
+  }
+  return [councillorEmails[district]];
+}
+
+function buildMailtoHref() {
+  const emails = getRecipientEmails();
+  if (!emails) return null;
+  const to = [...emails, mayorEmail].join(',');
   return `mailto:${to}?cc=${encodeURIComponent(clerkEmail)}`;
 }
 
-function updateMailto() {
-  const href = buildMailtoHref();
-  if (!href) {
-    mailtoBtn.disabled = true;
-    return;
-  }
-  mailtoBtn.disabled = false;
+function buildCopyString() {
+  const emails = getRecipientEmails();
+  if (!emails) return null;
+  return [...emails, mayorEmail, clerkEmail].join(', ');
+}
+
+function updateButtons() {
+  const hasSelection = !!districtSelect.value;
+  mailtoBtn.disabled = !hasSelection;
+  copyBtn.disabled = !hasSelection;
 }
 
 mailtoBtn.addEventListener('click', () => {
@@ -189,4 +202,13 @@ mailtoBtn.addEventListener('click', () => {
   }
 });
 
-districtSelect.addEventListener('change', updateMailto);
+copyBtn.addEventListener('click', () => {
+  const text = buildCopyString();
+  if (!text) return;
+  navigator.clipboard.writeText(text).then(() => {
+    copyConfirm.classList.add('visible');
+    setTimeout(() => { copyConfirm.classList.remove('visible'); }, 2000);
+  });
+});
+
+districtSelect.addEventListener('change', updateButtons);

@@ -72,30 +72,37 @@
       <div class="hero-card" id="act">
         <h2><button id="cardToggle" aria-expanded="false" aria-controls="heroCardBody">Email Your Councillor</button></h2>
         <div class="hero-card-body" id="heroCardBody">
-          <p class="card-sub">Select your district below. We'll open your email client with your councillor and the Mayor already in the To field.</p>
+          <p class="card-sub">Select your district below, or email all councillors at once. The Mayor and Municipal Clerk are always included.</p>
           <div class="form-group">
             <label for="district">Your District</label>
             <select id="district" name="district">
               <option value="" disabled selected>Select your district&hellip;</option>
-              <option value="1">District 1 — Waverley–Fall River–Musquodoboit Valley (Cathy Deagle Gammon)</option>
-              <option value="2">District 2 — Lawrencetown–The Lakes–Chezzetcook–Eastern Shore (David Hendsbee)</option>
-              <option value="3">District 3 — Dartmouth South–Woodside–Eastern Passage (Becky Kent)</option>
-              <option value="4">District 4 — Cole Harbour–Preston–Westphal–Cherry Brook (Trish Purdy)</option>
-              <option value="5">District 5 — Dartmouth Centre (Sam Austin)</option>
-              <option value="6">District 6 — Dartmouth East–Burnside (Tony Mancini)</option>
-              <option value="7">District 7 — Halifax South Downtown (Laura White)</option>
-              <option value="8">District 8 — Halifax Peninsula North (Virginia Hinch)</option>
-              <option value="9">District 9 — Halifax West Armdale (Shawn Cleary)</option>
-              <option value="10">District 10 — Halifax–Bedford Basin West (Kathryn Morse)</option>
-              <option value="11">District 11 — Spryfield–Sambro Loop (Patty Cuttell)</option>
-              <option value="12">District 12 — Timberlea–Beechville–Clayton Park–Wedgewood (Janet Steele)</option>
-              <option value="13">District 13 — Prospect Road–St. Margarets (Nancy Hartling)</option>
-              <option value="14">District 14 — Hammonds Plains–Upper Sackville (John Young)</option>
-              <option value="15">District 15 — Lower Sackville–Beaver Bank (Billy Gillis)</option>
-              <option value="16">District 16 — Bedford–Wentworth (Jean St-Amand)</option>
+              <option value="all">All Districts - Email Every Councillor</option>
+              <option value="1">District 1: Waverley–Fall River–Musquodoboit Valley (Cathy Deagle Gammon)</option>
+              <option value="2">District 2: Lawrencetown–The Lakes–Chezzetcook–Eastern Shore (David Hendsbee)</option>
+              <option value="3">District 3: Dartmouth South–Woodside–Eastern Passage (Becky Kent)</option>
+              <option value="4">District 4: Cole Harbour–Preston–Westphal–Cherry Brook (Trish Purdy)</option>
+              <option value="5">District 5: Dartmouth Centre (Sam Austin)</option>
+              <option value="6">District 6: Dartmouth East–Burnside (Tony Mancini)</option>
+              <option value="7">District 7: Halifax South Downtown (Laura White)</option>
+              <option value="8">District 8: Halifax Peninsula North (Virginia Hinch)</option>
+              <option value="9">District 9: Halifax West Armdale (Shawn Cleary)</option>
+              <option value="10">District 10: Halifax–Bedford Basin West (Kathryn Morse)</option>
+              <option value="11">District 11: Spryfield–Sambro Loop (Patty Cuttell)</option>
+              <option value="12">District 12: Timberlea–Beechville–Clayton Park–Wedgewood (Janet Steele)</option>
+              <option value="13">District 13: Prospect Road–St. Margarets (Nancy Hartling)</option>
+              <option value="14">District 14: Hammonds Plains–Upper Sackville (John Young)</option>
+              <option value="15">District 15: Lower Sackville–Beaver Bank (Billy Gillis)</option>
+              <option value="16">District 16: Bedford–Wentworth (Jean St-Amand)</option>
             </select>
           </div>
-          <button id="mailtoLink" class="mit" disabled>Open Email Client &rarr;</button>
+          <div class="action-buttons">
+            <button id="mailtoLink" class="mit" disabled>Open Email Client &rarr;</button>
+            <div class="copy-btn-wrap">
+              <span class="copy-toast" id="copyConfirm" aria-live="polite">Copied!</span>
+              <button id="copyEmails" class="mit mit-secondary" disabled>Copy Addresses</button>
+            </div>
+          </div>
           <p class="card-sub" style="margin-top: 0.5rem">Not sure which district you're in? <a href="https://www.halifax.ca/city-hall/districts-councillors/district-look" target="_blank" rel="noopener">Look it up here <span class="sr-only">(opens in a new tab)</span></a></p>
           <div class="email-tips">
             <h3>Tips for an Effective Email</h3>
@@ -104,7 +111,7 @@
               <li>How will the proposed cuts affect you personally?</li>
               <li>Let them know you're willing to pay to live in a well-run city</li>
               <li>Include a clear ask: "I oppose transit cuts" or "fund arts & culture programs"</li>
-              <li>Mention which district you live in — councillors are more likely to respond to constituents</li>
+              <li>Mention which district you live in:councillors are more likely to respond to constituents</li>
               <li>Keep it short, personal, and respectful</li>
             </ul>
           </div>
@@ -352,7 +359,7 @@
           <div class="section-label">Arts, Culture &amp; Recreation</div>
           <h2 class="section-title reveal" id="culture-heading">A City Without Culture Is Just a Collection of Buildings</h2>
           <p class="section-desc reveal">
-            HRM spends roughly $1.16 per capita on the arts — the national median is over $7.<a class="cite" href="#source-29" data-tip="The Coast: Halifax arts funding comparison" aria-label="Source 29">29</a> The proposed cuts target professional arts grants, local museums, non-profit tax relief, and recreation fees, hitting the organizations and programs that make this city worth living in. At the provincial level, cuts are targeting many of the same programs and groups.<a class="cite" href="#source-27" data-tip="NS Grant Reductions, Fiscal Year 2026-27" aria-label="Source 27">27</a> If both levels cut at once, there is nowhere left to turn, and many organizations will shut down.
+            HRM spends roughly $1.16 per capita on the arts:the national median is over $7.<a class="cite" href="#source-29" data-tip="The Coast: Halifax arts funding comparison" aria-label="Source 29">29</a> The proposed cuts target professional arts grants, local museums, non-profit tax relief, and recreation fees, hitting the organizations and programs that make this city worth living in. At the provincial level, cuts are targeting many of the same programs and groups.<a class="cite" href="#source-27" data-tip="NS Grant Reductions, Fiscal Year 2026-27" aria-label="Source 27">27</a> If both levels cut at once, there is nowhere left to turn, and many organizations will shut down.
           </p>
           <a href="#act" class="btn btn-primary reveal">Protect Arts &amp; Culture &rarr;</a>
         </div>
@@ -465,7 +472,7 @@
         <li id="source-27"><a href="https://www.halifaxexaminer.ca/wp-content/uploads/2026/02/Grant-Reductions-Media-Feb-24-Final.pdf" target="_blank" rel="noopener">Province of Nova Scotia: Grant Reductions by Department, Fiscal Year 2026-27 <span class="sr-only">(opens in a new tab)</span></a></li>
         <li id="source-28"><a href="https://www.halifaxexaminer.ca/transportation/look-at-clear-evidence-nova-scotia-physicians-group-advocating-for-bike-lanes-active-transportation-infrastructure/" target="_blank" rel="noopener">Halifax Examiner: NS Physicians Advocate for Bike Lanes and Active Transportation Infrastructure <span class="sr-only">(opens in a new tab)</span></a></li>
         <li id="source-29"><a href="https://www.thecoast.ca/arts-music/halifax-might-be-about-to-become-one-of-canadas-worst-funded-cities-for-the-arts-30282793" target="_blank" rel="noopener">The Coast: Halifax Might Be About to Become One of Canada's Worst-Funded Cities for the Arts <span class="sr-only">(opens in a new tab)</span></a></li>
-        <li id="source-30"><a href="https://samaustin.ca/e-news-october-2025/" target="_blank" rel="noopener">Sam Austin: E-News October 2025 — HRM Bike Counter Data <span class="sr-only">(opens in a new tab)</span></a></li>
+        <li id="source-30"><a href="https://samaustin.ca/e-news-october-2025/" target="_blank" rel="noopener">Sam Austin: E-News October 2025 - HRM Bike Counter Data <span class="sr-only">(opens in a new tab)</span></a></li>
       </ol>
     </div>
   </section>
